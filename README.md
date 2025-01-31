@@ -32,7 +32,9 @@ Once a poetry shell is active, do the following:
          * You can interact using the docs page to execute requests 
 
 ## Running tests
-Once a poetry shell is active, run `pytest` which will run the tests under the tests directory
+Once a poetry shell is active, run `pytest` which will run the tests under the tests directory.
+
+_Noting that you won't need a running postgres instance to run these tests, they will run against an in-memory sqlite DB._
 
 ## Pre-commit hooks
 This repo uses pre-commit hooks to execute `black` and `flake8` to auto-format python code
