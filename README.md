@@ -29,6 +29,7 @@ Once a poetry shell is active, do the following:
   2) Then you can interact via: 
      * Server: http://127.0.0.1:8000
      * Documentation: http://127.0.0.1:8000/docs
+         * You can interact using the docs page to execute requests 
 
 ## Running tests
 Once a poetry shell is active, run `pytest` which will run the tests under the tests directory
