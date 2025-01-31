@@ -10,3 +10,4 @@ loaded_data/*
 derby.log
 .DS_Store
 dist
+app.log

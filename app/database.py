@@ -1,5 +1,5 @@
 from sqlmodel import SQLModel, create_engine, Session
-from models import Movie
+from app.models import Movie
 
 
 # Harcoded postgres for now - this should be in config

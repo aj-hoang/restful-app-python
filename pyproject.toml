@@ -11,6 +11,7 @@ fastapi = {extras = ["standard"], version = "^0.115.7"}
 sqlmodel = "^0.0.22"
 psycopg2-binary = "^2.9.10"
 pre-commit = "^4.1.0"
+httpx = "^0.28.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"

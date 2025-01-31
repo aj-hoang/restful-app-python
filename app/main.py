@@ -3,12 +3,12 @@ import sys
 from contextlib import asynccontextmanager
 from typing import List, Annotated
 
-from database import get_session, create_db_and_tables
+from app.database import get_session, create_db_and_tables
 from fastapi import FastAPI, status, HTTPException, Depends
 from fastapi.responses import JSONResponse
 from sqlmodel import Session, select
-from models import Movie, MovieCreate, MovieUpdate
-from utils import clean_genre
+from app.models import Movie, MovieCreate, MovieUpdate
+from app.utils import clean_genre
 
 
 logger = logging.getLogger(__name__)
@@ -19,7 +19,7 @@ formatter = logging.Formatter(
 
 stream_handler = logging.StreamHandler(sys.stdout)
 stream_handler.setFormatter(formatter)
-file_handler = logging.FileHandler("info.log")
+file_handler = logging.FileHandler("app.log")
 file_handler.setFormatter(formatter)
 
 logger.addHandler(stream_handler)
@@ -39,12 +39,12 @@ SessionDep = Annotated[Session, Depends(get_session)]
 
 
 @app.get("/")
-async def get_root():
+def get_root():
     return {"Welcome": "Hello"}
 
 
 @app.get("/movies/", response_model=List[Movie])
-async def get_movies(*, session: SessionDep):
+def get_movies(*, session: SessionDep):
     """
     Get Movies
     """
@@ -56,7 +56,7 @@ async def get_movies(*, session: SessionDep):
 
 
 @app.get("/movies/{movie_id}", response_model=Movie)
-async def get_movie(*, session: SessionDep, movie_id: int):
+def get_movie(*, session: SessionDep, movie_id: int):
     """
     Get Movie for a supplied movie id
     """
@@ -70,7 +70,7 @@ async def get_movie(*, session: SessionDep, movie_id: int):
 
 
 @app.post("/movies/", response_model=Movie)
-async def create_movie(*, session: SessionDep, movie_in: MovieCreate):
+def create_movie(*, session: SessionDep, movie_in: MovieCreate):
     """
     Create Movie
     """
@@ -86,9 +86,7 @@ async def create_movie(*, session: SessionDep, movie_in: MovieCreate):
 
 
 @app.put("/movies/{movie_id}")
-async def update_movie(
-    *, session: SessionDep, movie_id: int, movie_in: MovieUpdate
-):
+def update_movie(*, session: SessionDep, movie_id: int, movie_in: MovieUpdate):
     """
     Update movie
     """
@@ -112,7 +110,7 @@ async def update_movie(
 
 
 @app.delete("/movies/{movie_id}")
-async def delete_movie(*, session: SessionDep, movie_id: int):
+def delete_movie(*, session: SessionDep, movie_id: int):
     """
     Delete Movie
     """
