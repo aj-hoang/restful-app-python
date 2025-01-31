@@ -4,11 +4,6 @@ This is a simple restful python backend that interacts with a local postgres DB.
 
 Requests will allow you to create/read/update/delete movies (CRUD)
 
-* Automated tests
-* Input sanitation
-* Error Handling
-* Observability
-
 ## Prerequisites
 
 * Python 3.10+
@@ -30,6 +25,9 @@ Once a poetry shell is active, do the following:
      * Server: http://127.0.0.1:8000
      * Documentation: http://127.0.0.1:8000/docs
          * You can interact using the docs page to execute requests 
+
+
+_Logs can be viewed in the `app.log` file which will be in the root directory of this project_
 
 ## Running tests
 Once a poetry shell is active, run `pytest` which will run the tests under the tests directory.
