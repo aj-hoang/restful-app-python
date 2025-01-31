@@ -33,3 +33,6 @@ Once a poetry shell is active, do the following:
 
 ## Running tests
 Once a poetry shell is active, run `pytest` which will run the tests under the tests directory
+
+## Pre-commit hooks
+This repo uses pre-commit hooks to execute `black` and `flake8` to auto-format python code
