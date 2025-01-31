@@ -20,7 +20,7 @@ Requests will allow you to create/read/update/delete movies (CRUD)
 ## Running the python backend
 Once a poetry shell is active, do the following:
   1) Ensure you have a postgres instance running.
-  1) In commandline, run `fastapi dev src.main.py` - this will start the python backend
+  1) In commandline, run `fastapi dev app/main.py` - this will start the python backend
   2) Then you can interact via: 
      * Server: http://127.0.0.1:8000
      * Documentation: http://127.0.0.1:8000/docs
